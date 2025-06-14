@@ -93,10 +93,10 @@ HTML = """
 </head>
 <body>
   <div class="card">
-    <h1>Gerador de Etiquetas com Código de Barras</h1>
+    <h1>Gerador de Etiquetas 2.0</h1>
     <div class="desc">
-      Envie sua planilha Excel (.xlsx) contendo os endereços. Após processar, o sistema devolve o PDF das etiquetas prontas para impressão.<br>
-      <span style="font-size:0.93em; color:#116cff; font-weight:500">Atenção:</span> O endereço deve estar na primeira coluna da planilha.
+      Envie sua planilha Excel (.xlsx)<br><br>
+      <span style="font-size:0.93em; color:#116cff; font-weight:500">Atenção:</span> Os endereço deve estar na primeira coluna da planilha.
     </div>
     <form method="post" enctype="multipart/form-data">
       <input type="file" name="file" required accept=".xlsx">
@@ -104,7 +104,7 @@ HTML = """
     </form>
   </div>
   <div class="creditos">
-    &copy; 2025 - Gerador de Etiquetas | Desenvolvido por Eduardo
+    &copy; 2025 - Gerador de Etiquetas | Desenvolvido por Eduardo Magalhães
   </div>
 </body>
 </html>
