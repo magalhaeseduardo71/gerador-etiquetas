@@ -133,7 +133,7 @@ def upload_file():
             c.drawString((largura_pt - text_width) / 2, y_text, endereco_visual)
             espacamento = 3 * mm
             bar_height = 9 * mm
-            barcode = code128.Code128(endereco_completo, barHeight=bar_height, barWidth=0.4)
+            barcode = code128.Code128(endereco_completo, barHeight=bar_height, barWidth=2.5)
             barcode_width = barcode.width
             x_barcode = (largura_pt - barcode_width) / 2
             y_barcode = y_text - espacamento - bar_height
