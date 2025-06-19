@@ -3,6 +3,7 @@ import pandas as pd
 from reportlab.pdfgen import canvas
 from reportlab.lib.units import mm
 from reportlab.graphics.barcode import code128
+import os
 
 app = Flask(__name__)
 
@@ -122,8 +123,6 @@ HTML = """
 </html>
 """
 
-
-
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -132,14 +131,14 @@ def upload_file():
             return 'Nenhum arquivo enviado!'
         df = pd.read_excel(file)
         coluna_endereco = df.columns[0]
-        pdf_file = "Endereços_Gerados.pdf"
+        pdf_file = "etiquetas_ajustadas.pdf"
         largura_mm, altura_mm = 60, 25
         largura_pt, altura_pt = largura_mm * mm, altura_mm * mm
         c = canvas.Canvas(pdf_file, pagesize=(largura_pt, altura_pt))
         for i, row in df.iterrows():
             endereco_completo = str(row[coluna_endereco]).strip()
             endereco_visual = endereco_completo[5:]
-            font_size = 28
+            font_size = 32
             c.setFont("Helvetica-Bold", font_size)
             text_width = c.stringWidth(endereco_visual, "Helvetica-Bold", font_size)
             y_text = altura_pt - (altura_pt * 0.45)
@@ -156,9 +155,6 @@ def upload_file():
         return send_file(pdf_file, as_attachment=True)
     return render_template_string(HTML)
 
-import os
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
-
