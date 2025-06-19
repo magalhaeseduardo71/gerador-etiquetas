@@ -126,14 +126,14 @@ def upload_file():
         for i, row in df.iterrows():
             endereco_completo = str(row[coluna_endereco]).strip()
             endereco_visual = endereco_completo[5:]
-            font_size = 32
+            font_size = 28
             c.setFont("Helvetica-Bold", font_size)
             text_width = c.stringWidth(endereco_visual, "Helvetica-Bold", font_size)
             y_text = altura_pt - (altura_pt * 0.45)
             c.drawString((largura_pt - text_width) / 2, y_text, endereco_visual)
             espacamento = 3 * mm
             bar_height = 9 * mm
-            barcode = code128.Code128(endereco_completo, barHeight=bar_height, barWidth=0.8)
+            barcode = code128.Code128(endereco_completo, barHeight=bar_height, barWidth=0.6)
             barcode_width = barcode.width
             x_barcode = (largura_pt - barcode_width) / 2
             y_barcode = y_text - espacamento - bar_height
