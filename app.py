@@ -10,105 +10,118 @@ HTML = """
 <!doctype html>
 <html lang="pt-br">
 <head>
-  <meta charset="utf-8">
-  <title>Gerador de Etiquetas</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      min-height: 100vh;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #f8fafc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-    .card {
-      background: #fff;
-      border-radius: 18px;
-      box-shadow: 0 2px 16px 0 rgba(50,60,70,0.07);
-      padding: 32px 26px 28px 26px;
-      max-width: 370px;
-      width: 90%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 32px;
-    }
-    h1 {
-      font-size: 1.7em;
-      margin-bottom: 6px;
-      color: #1d2431;
-      font-weight: 700;
-      text-align: center;
-    }
-    .desc {
-      color: #555c6c;
-      font-size: 1.1em;
-      margin-bottom: 18px;
-      text-align: center;
-    }
-    input[type="file"] {
-      border: 1px solid #d1d7e2;
-      border-radius: 8px;
-      padding: 8px;
-      background: #f6f8fa;
-      color: #333;
-      margin-bottom: 18px;
-      width: 100%;
-      box-sizing: border-box;
-      font-size: 1em;
-    }
-    button {
-      padding: 12px 0;
-      background: #116cff;
-      color: #fff;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      font-size: 1.1em;
-      width: 100%;
-      cursor: pointer;
-      transition: background 0.2s;
-      margin-top: 5px;
-      margin-bottom: 2px;
-      box-shadow: 0 2px 4px 0 rgba(17, 108, 255, 0.04);
-    }
-    button:hover {
-      background: #0045a3;
-    }
-    .creditos {
-      margin-top: 40px;
-      color: #94a3b8;
-      font-size: 0.93em;
-    }
-    @media (max-width: 500px) {
-      .card { padding: 16px 5px; }
-      h1 { font-size: 1.12em; }
-      .desc { font-size: 1em; }
-    }
-  </style>
+<meta charset="utf-8">
+<title>Gerar Etiquetas – O Varejão Auto Peças</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  body {
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+    color:#333;
+  }
+  header {
+    background: #f8aa00;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header .logo {
+    font-weight: bold;
+    font-size: 1.4em;
+    color: #fff;
+  }
+  header nav a {
+    margin-left: 16px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+  }
+  .hero {
+    background: #fff;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 2px solid #eee;
+  }
+  .hero h1 {
+    margin: 0;
+    font-size: 2em;
+    color: #6b4700;
+  }
+  .container {
+    max-width: 480px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .container h2 {
+    margin-top:0;
+    color:#6b4700;
+    font-size:1.3em;
+  }
+  input[type="file"] {
+    border:1px solid #ccc;
+    border-radius:4px;
+    padding:8px;
+    width:100%;
+    margin:12px 0;
+  }
+  button {
+    background: #f8aa00;
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    width:100%;
+    font-size:1.1em;
+    cursor: pointer;
+    border-radius:4px;
+  }
+  button:hover {
+    background: #d99800;
+  }
+  footer {
+    background:#333;
+    color:#fff;
+    text-align:center;
+    padding:16px 20px;
+    font-size:0.9em;
+  }
+</style>
 </head>
 <body>
-  <div class="card">
-    <h1>Gerador de Etiquetas 2.0</h1>
-    <div class="desc">
-      Envie sua planilha Excel (.xlsx)<br><br>
-      <span style="font-size:0.93em; color:#116cff; font-weight:500">Atenção:</span> Os endereço deve estar na primeira coluna da planilha.
-    </div>
-    <form method="post" enctype="multipart/form-data">
-      <input type="file" name="file" required accept=".xlsx">
-      <button type="submit">Gerar PDF de Etiquetas</button>
-    </form>
-  </div>
-  <div class="creditos">
-    &copy; 2025 - Gerador de Etiquetas | Desenvolvido por Eduardo Magalhães
-  </div>
+
+<header>
+  <div class="logo">O Varejão Auto Peças</div>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Produtos</a>
+    <a href="#">Contato</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Gerador de Etiquetas com Código de Barras</h1>
+</section>
+
+<div class="container">
+  <h2>Envie sua planilha Excel (.xlsx)</h2>
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" required accept=".xlsx">
+    <button type="submit">Gerar PDF</button>
+  </form>
+</div>
+
+<footer>
+  &copy; 2025 O Varejão Auto Peças – Todos os direitos reservados
+</footer>
+
 </body>
 </html>
 """
+
 
 
 @app.route('/', methods=['GET', 'POST'])
