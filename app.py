@@ -119,7 +119,7 @@ def upload_file():
             return 'Nenhum arquivo enviado!'
         df = pd.read_excel(file)
         coluna_endereco = df.columns[0]
-        pdf_file = "etiquetas_ajustadas.pdf"
+        pdf_file = "Endereços_Gerados.pdf"
         largura_mm, altura_mm = 60, 25
         largura_pt, altura_pt = largura_mm * mm, altura_mm * mm
         c = canvas.Canvas(pdf_file, pagesize=(largura_pt, altura_pt))
@@ -133,7 +133,7 @@ def upload_file():
             c.drawString((largura_pt - text_width) / 2, y_text, endereco_visual)
             espacamento = 3 * mm
             bar_height = 9 * mm
-            barcode = code128.Code128(endereco_completo, barHeight=bar_height, barWidth=0.9)
+            barcode = code128.Code128(endereco_completo, barHeight=bar_height, barWidth=5)
             barcode_width = barcode.width
             x_barcode = (largura_pt - barcode_width) / 2
             y_barcode = y_text - espacamento - bar_height
