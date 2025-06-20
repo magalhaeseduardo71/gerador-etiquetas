@@ -169,7 +169,7 @@ def upload_file():
         for i, row in df.iterrows():
             endereco_completo = str(row[coluna_endereco]).strip()
             endereco_visual = endereco_completo[5:]
-            font_size = 32
+            font_size = 28
             c.setFont("Helvetica-Bold", font_size)
             text_width = c.stringWidth(endereco_visual, "Helvetica-Bold", font_size)
             y_text = altura_pt - (altura_pt * 0.45)
