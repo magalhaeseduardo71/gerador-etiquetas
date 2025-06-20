@@ -162,7 +162,7 @@ def upload_file():
             return 'Nenhum arquivo enviado!'
         df = pd.read_excel(file)
         coluna_endereco = df.columns[0]
-        pdf_file = "etiquetas_ajustadas.pdf"
+        pdf_file = "Endereços_Gerados.pdf"
         largura_mm, altura_mm = 60, 25
         largura_pt, altura_pt = largura_mm * mm, altura_mm * mm
         c = canvas.Canvas(pdf_file, pagesize=(largura_pt, altura_pt))
